@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :comments
   
   #USERS ROUTES
-  resources :users, except: [:new]
+  resources :users, except: :new
   get 'signup', to: 'users#new'
   
   
