@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   
+  has_secure_password
+  
   validates :username, uniqueness: {case_sensitive: false}, presence: true, length: {minimum: 3, maximum: 25}#ensures that the username column is present
   
   VALID_EMAIL_REGEX =  /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
