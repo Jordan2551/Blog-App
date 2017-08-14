@@ -1,0 +1,22 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+//Define styles here!
+.navbar-default{
+  background-color:black;
+  font-size:18px;
+  color:white;
+}
+
+.navbar-brand{
+  font-size:23px;
+  color:white;
+  font-weight:bold;
+}
+
+.footer{
+  margin-top:45px;
+  padding-top:5px;
+  border-top: 1px solid #eaeaea;
+  color:#777;
+}
