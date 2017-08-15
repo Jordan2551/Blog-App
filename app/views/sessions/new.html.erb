@@ -1,0 +1,21 @@
+<h1 align="center">Log in</h1>
+
+<%= form_for :session, url: login_path do |f| %>
+
+
+    <div class="form-group">
+
+      <p>
+        <%= f.label :email, class: "control-label" %><br>
+        <%= f.text_field :email, class: "form-control", placeholder: "Enter Email" %>
+      </p>
+      <p>
+        <%= f.label :password, class: "control-label" %><br>
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter Password", autocomplete: "off" %>
+      </p>
+
+      <%= f.submit 'Log in', class: "btn btn-primary btn-lg" %>
+
+    </div>
+
+<% end %>
