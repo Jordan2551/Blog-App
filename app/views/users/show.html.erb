@@ -9,7 +9,11 @@
 	</div>
 </div>
 
-<%= render 'articles/articles_listing', obj: @user.articles%>
+<div align="center">
+  <%= will_paginate @user_articles %>
+</div>
+
+<%= render 'articles/articles_listing', obj: @user_articles%>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

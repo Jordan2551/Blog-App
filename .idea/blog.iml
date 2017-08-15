@@ -36,6 +36,7 @@
     <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v7.1.2.4, ruby-2.2.4-p230) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.11, ruby-2.2.4-p230) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.3.6, ruby-2.2.4-p230) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootstrap-will_paginate (v0.0.10, ruby-2.2.4-p230) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, ruby-2.2.4-p230) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.13.6, ruby-2.2.4-p230) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.2.1, ruby-2.2.4-p230) [gem]" level="application" />
@@ -82,6 +83,7 @@
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.4.0, ruby-2.2.4-p230) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.6.4, ruby-2.2.4-p230) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.2, ruby-2.2.4-p230) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="will_paginate (v3.1.6, ruby-2.2.4-p230) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

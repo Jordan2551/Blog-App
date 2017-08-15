@@ -45,7 +45,9 @@ class ArticlesController < ApplicationController
   end
  
   def list
-    @articles = Article.all
+    #Use the will_paginate gem to display a limited amount of articles per page to reduce
+    #The load off of the server. Here we specify the page we wish to pagine, along with the amount of items per page
+    @articles = Article.paginate(page: params[:page], per_page: 3)
   end
  
   private
