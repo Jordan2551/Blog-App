@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -10,7 +9,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 3)
   end
 
@@ -21,7 +19,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    find_user
   end
 
   # POST /users
@@ -41,6 +39,7 @@ class UsersController < ApplicationController
   #QUESTION: why does create always require a password while update does not?
   #ANSWER: when we update we get the desired user from the db with the password information already loaded, which means a password is actually provided (directly from the db)
   def update
+    find_user
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Your account has updated successfully"
@@ -61,8 +60,7 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
+    def find_user
       @user = User.find(params[:id])
     end
 
