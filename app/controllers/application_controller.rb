@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   #All methods inside of ApplicationController are available to all controllers because
   #Every controller < ApplicationController
+  #This is also the reason these user helpers are not located in users_controller. Because we want these methods to be accessible everywhere!
 
   #These methods will be available to our views
   helper_method :current_user, :logged_in?
@@ -23,9 +24,10 @@ class ApplicationController < ActionController::Base
     !!current_user#In this case, if the user is nil, then we return false; otherwise true
   end
 
+  #Requires a user to be logged in to perform a special action
   def require_user
-    if logged_in?
-      flash[:danger] = "You must be logged in to perform that action!"
+    if !logged_in?
+      flash[:danger] = 'You must be logged in to perform that action!'
       redirect_to root_path
     end
   end

@@ -11,12 +11,10 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "articles#index"
-  get "articles/list", to: 'articles#list'
+  root 'articles#index'
+  get 'articles/list', to: 'articles#list'
   post 'users', to: 'users#create'
   
-  resources :articles do
-
-  end
+  resources :articles
  
 end
