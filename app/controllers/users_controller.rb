@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :find_user, only: [:show, :update, :edit]
-  before_action :require_same_user, only: [:edit, :update]
-
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy] #Only admins can destroy users
   # GET /users
   # GET /users.json
   def index
@@ -51,30 +51,36 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  #Delete the user and delete all of the associated user's articles
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html {redirect_to users_url, notice: 'User was successfully destroyed.'}
-      format.json {head :no_content}
-    end
-  end
-
-  private
-  def find_user
     @user = User.find(params[:id])
-  end
-
-  def require_same_user
-    if current_user != @user && !current_user.is_admin
-      flash[:danger] = 'You must log in to that account in order to edit it'
-      redirect_to root_path
-    end
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def user_params
-    params.require(:user).permit(:username, :email, :password)
+    @user.destroy
+    flash[:danger] = 'User and all articles created by user have been deleted'
+    redirect_to users_path
   end
 end
+
+private
+def find_user
+  @user = User.find(params[:id])
+end
+
+def require_same_user
+  if current_user != @user && !current_user.is_admin
+    flash[:danger] = 'You must log in to that account in order to edit it'
+    redirect_to root_path
+  end
+end
+
+def require_admin
+  if logged_in? and !current_user.is_admin
+    flash[:danger] = 'No permission to delete users.'
+    redirect_to root_path
+  end
+end
+
+# Never trust parameters from the scary internet, only allow the white list through.
+def user_params
+  params.require(:user).permit(:username, :email, :password)
+end
+

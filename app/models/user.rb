@@ -8,8 +8,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: {case_sensitive: false}, presence: true, length: {maximum: 105}, format: {with: VALID_EMAIL_REGEX}
   
   before_save {self.email = email.downcase}#downcase emails before saved to db
-  
-  has_many :articles
+
+  #Provides foreign key relationship + when a user is destroyed, all articles will also be destroyed
+  has_many :articles, dependent: :destroy
   has_many :comments
 
 end
