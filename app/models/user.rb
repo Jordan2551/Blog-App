@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+
   has_secure_password
   
   validates :username, uniqueness: {case_sensitive: false}, presence: true, length: {minimum: 3, maximum: 25}#ensures that the username column is present
@@ -11,5 +11,5 @@ class User < ApplicationRecord
   
   has_many :articles
   has_many :comments
-  
+
 end
