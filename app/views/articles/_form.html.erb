@@ -30,10 +30,6 @@
               <%= f.text_area :content, class: "form-control", placeholder: "Content" %>
             </p>
             <p>
-              <%= f.label :category_id, class: "control-label" %><br>
-              <%= f.collection_select :category_id, Category.order(:description), :id, :description, class: "form-control", placeholder: "Pick Category" %>
-            </p>
-            <p>
               <%= f.label :num, class: "control-label" %><br>
               <%= f.text_field :num, class: "form-control", placeholder: "Number" %>
             </p>
