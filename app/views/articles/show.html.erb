@@ -8,11 +8,10 @@
   <%= @article.content %>
 </p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @article.num %>
-</p>
-
+<% if @article.categories.any? %>
+    <!--What the fuck?-->
+    <p>Categories: <%= render @article.categories %></p>
+<% end %>
 <% if @article.user %>
     <ul class="listing">
       <div class="row text-center">

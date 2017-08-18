@@ -2,8 +2,7 @@
   <tr>
     <th>Title</th>
     <th>Content</th>
-    <th>Category</th>
-    <th>Number</th>
+    <th>Categories</th>
     <th>Created By</th>
     <th>Creation Time</th>
     <th>Last Updated</th>
@@ -13,7 +12,9 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.content %></td>
-        <td><%= article.num %></td>
+        <% if article.categories.any? %>
+            <td>Categories: <%= render article.categories %></td>
+        <% end %>
         <td><%= article.user.username if article.user %></td>
         <td><%= article.created_at %></td>
         <td><%= article.updated_at %></td>
