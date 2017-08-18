@@ -72,13 +72,6 @@ def require_same_user
   end
 end
 
-def require_admin
-  if logged_in? and !current_user.is_admin
-    flash[:danger] = 'No permission to delete users.'
-    redirect_to root_path
-  end
-end
-
 # Never trust parameters from the scary internet, only allow the white list through.
 def user_params
   params.require(:user).permit(:username, :email, :password)

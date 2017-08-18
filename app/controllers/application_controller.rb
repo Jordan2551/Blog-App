@@ -32,6 +32,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    if logged_in? && !current_user.is_admin
+      flash[:danger] = 'No permission to delete users.'
+      redirect_to root_path
+    end
+  end
 #Not neeeded right now
 # def get_user_role
 #   if logged_in?

@@ -1,0 +1,37 @@
+<h1 align="center">Create new category</h1>
+
+
+<div class="container">
+
+  <%= form_for @category do |f| %>
+
+      <% if @category.errors.any? %>
+          <div id="error_explanation" style="color:indigo">
+            <h2>
+              <%= @category.errors.count %> Errors have prevented the article from being saved:
+            </h2>
+            <ol>
+              <%= @category.errors.full_messages.each do |msg| %>
+                  <li>
+                    <%= msg %>
+                  </li>
+              <% end %>
+            </ol>
+          </div>
+      <% end %>
+
+      <div class="form-group">
+
+        <p>
+          <%= f.label :name, class: "control-label" %><br>
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter new category" %>
+        </p>
+
+        <%= f.submit 'Create Category', class: "btn btn-primary btn-lg" %>
+
+      </div>
+
+      </div>
+
+
+  <% end %>

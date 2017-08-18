@@ -1,23 +1,37 @@
-require 'test/unit'
+require 'test_helper'
 
-class MyTest < Test::Unit::TestCase
+class CategoryTest < ActiveSupport::TestCase
 
   # Called before every test method runs. Can be used
   # to set up fixture information.
   def setup
-    # Do nothing
+    @category = Category.new(name: 'sports')
   end
 
-  # Called after every test method runs. Can be used to tear
-  # down fixture information.
-
-  def teardown
-    # Do nothing
+  test "category should be valid" do
+    assert @category.valid?
   end
 
-  # Fake test
-  def test_fail
-
-    fail('Not implemented')
+  test "name should be present" do
+    @category.name = "sports" # -> pass
+    #@category.name = " " # -> fail
+    assert @category.valid?
   end
+
+  test "name should be unique" do
+    @category.save
+    category2 = Category.new(name: "sports")
+    assert_not category2.valid?
+  end
+
+  test "name should not be too long" do
+    @category.name = "allllllllllllllllllllllllllllllllllll"
+    assert_not @category.valid?
+  end
+
+  test "name should not be too short" do
+    @category.name = "h"
+    assert_not @category.valid?
+  end
+
 end

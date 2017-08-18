@@ -33,6 +33,10 @@
               <%= f.label :num, class: "control-label" %><br>
               <%= f.text_field :num, class: "form-control", placeholder: "Number" %>
             </p>
+            <p>
+              <%= f.label :category, class: "control-label" %><br>
+              <%= f.collection_select :id, Category.order(:name),:id,:name, include_blank: true %>
+            </p>
 
             <%= f.submit class: "btn btn-primary btn-lg" %>
 
